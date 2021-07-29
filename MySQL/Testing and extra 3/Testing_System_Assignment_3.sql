@@ -60,7 +60,7 @@ TypeName		ENUM('Essay', 'Multiple Choice' ) UNIQUE NOT NULL
 DROP DATABASE IF EXISTS CategoryQuestion;
 CREATE TABLE	CategoryQuestion(
 CategoryID		TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-CategoryName	VARCHAR(20) UNIQUE NOT NULL
+CategoryName	ENUM('Java', '.NET', 'SQL', 'Postman', 'Ruby') UNIQUE NOT NULL
 );
 
 -- Tạo bảng Question
@@ -172,7 +172,7 @@ VALUE						 (	 'Essay'			),
 
 INSERT INTO		CategoryQuestion (	CategoryName	)
 VALUE							 (	'Java'			),
-								 (	'NET'			),
+								 (	'.NET'			),
                                  (	'SQL'			),
                                  (	'Postman'		),
                                  (	'Ruby'			);

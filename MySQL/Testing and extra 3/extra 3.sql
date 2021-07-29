@@ -55,7 +55,7 @@ VALUE							('Nguyen Van Trung' ,	'1997-2-7'	,	'male'		,	19		,	20			,	30			,	1		
 
 
 -- Question 2:Viết lệnh để lấy ra tất cả các thực tập sinh đã vượt qua bài test đầu vào,nhóm chúng thành các tháng sinh khác nhau.
-SELECT 		BirthDate
+SELECT 		BirthDate, month(BirthDate)
 FROM 		Trainee
 WHERE		(Et_iq + Et_gmath) >= 20 AND Et_iq >=8 AND Et_gmath >= 8 AND Et_enghlish >= 18
 GROUP BY	month(BirthDate);
