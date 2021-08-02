@@ -239,13 +239,13 @@ WHERE		DepartmentName = N'Phòng Sale';
 -- Question 4:  lấy ra thông tin account có full name dài nhất
 SELECT		*
 FROM		`Account`
-WHERE		length(FullName) = (SELECT	max(length(FullName)) 
+WHERE		length(FullName) IN (SELECT	max(length(FullName)) 
 								FROM	`Account`);
                                 
 -- Question 5: : Lấy ra thông tin account có full name dài nhất và thuộc phòng ban có id = 3
 SELECT		*
 FROM		`Account`
-WHERE		length(FullName) = (SELECT	max(length(FullName)) 
+WHERE		length(FullName) IN (SELECT	max(length(FullName)) 
 								FROM	`Account`) AND DepartmentID = 3;
 							
 -- Question 6:	Lấy ra tên group đã tham gia trước ngày 20/12/2019
@@ -293,12 +293,12 @@ WHERE		CreateDate < '2019-12-20';
 -- Question 13: : Xóa tất cả các question có nội dung bắt đầu bằng từ "câu hỏi"
 DELETE	
 FROM		ExamQuestion
-WHERE		QuestionID in ( SELECT 	QuestionID
+WHERE		QuestionID IN ( SELECT 	QuestionID
 							FROM	Question
                             WHERE	`Content` LIKE 'Cau hoi%');
 DELETE	
 FROM		Answer
-WHERE		QuestionID in ( SELECT 	QuestionID
+WHERE		QuestionID IN ( SELECT 	QuestionID
 							FROM	Question
                             WHERE	`Content` LIKE 'Cau hoi%');
 DELETE	
