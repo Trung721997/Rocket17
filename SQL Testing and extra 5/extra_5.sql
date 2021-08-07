@@ -49,17 +49,16 @@ WHERE		`ListPrice` =	(SELECT		min(`ListPrice`)
                              
 -- Exercise 2
 -- Question 1:
-SELECT		CT.`Name`, A.City
+SELECT		CT.`Name`, SP.`Name`
 FROM		stateprovince 	AS SP
-JOIN		address			AS	A			ON 	SP.StateProvinceID = A.StateProvinceID
 JOIN		countryregion 	AS CT			ON	SP.CountryRegionCode = CT.CountryRegionCode;
 
 -- Question 2:
-SELECT		CT.`Name`, A.City
+SELECT		CT.`Name`,SP.`Name`
 FROM		stateprovince 	AS SP
-JOIN		address			AS	A			ON 	SP.StateProvinceID = A.StateProvinceID
-JOIN		countryregion 	AS CT			ON	SP.CountryRegionCode = CT.CountryRegionCode
+JOIN		countryregion 	AS CT		ON	SP.CountryRegionCode = CT.CountryRegionCode
 WHERE		CT.`Name` IN ('Canada', 'Germany');
+
 
 -- Question 3:
 SELECT		SP.SalesPersonID, SP.Bonus, SP.SalesYTD, SD.SalesOrderID, SD.OrderDate
